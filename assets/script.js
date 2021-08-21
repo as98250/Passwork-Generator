@@ -2,47 +2,58 @@ var generateBtn = document.querySelector("#generate");
 var letters = "abcdefghijklmnopqrstuvwxyz";
 var upperCase = letters.toUpperCase();
 var numbers = "0123456789";
-var special = "!@#$%^&*()-=_+{/[|}}^"
+var special = "!@#$%^&*()-=_+{/[|}}^";
 store = [];
-var upperCase = false;
-var lowerCase = false;
-var number = false;
-var specialCharacters = false;
+var upperCase = true;
+var lowerCase = true;
+var number = true;
+var specialCharacters = true;
+
+letters = confirm('Do you want lower case?');
+upperCase = confirm('Do you want uppercase?');
+number = confirm('Do you want numbers?');
+special = confirm('Do you want special charecters');
 
 function generatePassword() {
-  var length = 10;
+  var length = 16;
+  var password = "";
+  var variable = "";
 
   if (lowercase) {
     var random = Math.floor(Math.random() * letters.length);
     var chosenLetter = letters[random];
+    variable += letters;
     stored.push(chosenLetter);
   }
   if (upperCase) {
-    var random = Math.floor(Math.random() * uppperCase.length);
-    var chosenUpper = upperCase[random]
+    var random = Math.floor(Math.random() * upperCase.length);
+    var chosenUpper = upperCase[random];
+    variable += upperCase;
     stored.push(chosenUpper);
   }
   if (number) {
     var random = Math.floor(Math.random() * numbers.length);
     var chosenNumber = numbers[random];
+    variable += numbers;
     stored.push(chosenNumber);
   }
   if (special) {
     var random = Math.floor(Math.random() * special.length);
     var chosenLSpecial = special[random];
-    stored.push(chosenLSpecial)
+    variable += special;
+    stored.push(chosenLSpecial);
 
 
-  for (var i = 0; i < length; i++) {
+  for (var i = 0; i < length - stored.length; i++) {
     var random = Math.floor(Math.random() * letters.length);
-    passwork += letters[random]
+    passwork += letters[random];
   }
   
   console.log(password);
+  console.log(variable);
+  console.log(stored);
   return password;
 }
-generatePassword();
-
 
   
 // Write password to the #password input
@@ -55,4 +66,5 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword)}
+
