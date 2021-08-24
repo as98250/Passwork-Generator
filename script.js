@@ -53,6 +53,7 @@ function generatePassword() {
   console.log(password);
   console.log(variable);
   console.log(stored);
+
   return password;
 }
 
@@ -61,11 +62,17 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  if (password) {
+    passwordText.value = password;
+  }
+  
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)}
+generateBtn.addEventListener("click", writePassword) ;
+  writePassword();
+    
+
+}
 
