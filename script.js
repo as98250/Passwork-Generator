@@ -4,6 +4,7 @@ var upperCase = letters.toUpperCase();
 var numbers = "0123456789";
 var special = "!@#$%^&*()-=_+{/[|}}^";
 store = [];
+
 var upperCase = true;
 var lowerCase = true;
 var number = true;
